@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="build" basedir=".">
+    <property environment="env" />
+
+    <mkdir dir="./bin" />
+
+    <target name="compile">
+        <javac srcdir="./src/de/alexanderteves/ant"
+               destdir="./bin"
+               includeAntRuntime="false"
+               includeJavaRuntime="true" />
+    </target>
+
+    <target name="pack" depends="compile">
+        <jar destfile="ant-md5helper.jar"
+             basedir="./bin" />
+    </target>
+
+    <target name="build" depends="pack" />
+</project>
